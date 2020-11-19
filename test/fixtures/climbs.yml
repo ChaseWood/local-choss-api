@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  route_id: 1
+  name: MyString
+  type: 
+  rating: MyString
+  stars: MyString
+  location: MyString
+  latitude: 9.99
+  longitude: 9.99
+  ticklist: false
+  climber_id: 1
+
+two:
+  route_id: 1
+  name: MyString
+  type: 
+  rating: MyString
+  stars: MyString
+  location: MyString
+  latitude: 9.99
+  longitude: 9.99
+  ticklist: false
+  climber_id: 1
