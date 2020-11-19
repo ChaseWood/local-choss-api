@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create([
+    { username: "chase" },
+    { username: "hannah" }
+
+])
+
+Climb.create([
+    { name: "new", user_id: 1 },
+    { name: "newestd", user_id: 2 }
+
+])

@@ -10,7 +10,7 @@ class CreateClimbs < ActiveRecord::Migration[6.0]
       t.decimal :latitude
       t.decimal :longitude
       t.boolean :ticklist
-      t.integer :climber_id
+      t.integer :user_id
 
       t.timestamps
     end
