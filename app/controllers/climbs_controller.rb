@@ -1,11 +1,29 @@
 class ClimbsController < ApplicationController
   before_action :set_climb, only: [:show, :update, :destroy]
 
-  # GET /climbs
-  def index
-    @climbs = Climb.all
 
-    render json: @climbs
+
+
+  def hello
+    
+    
+    response = RestClient.get "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=#{params[:lat]}&lon=-105.25&maxDistance=10&minDiff=5.6&maxDiff=5.10&key=200965041-9849b0bf4efa888bd435da7521d00992"
+    climbs = JSON.parse response
+
+    render json: climbs
+
+  end
+
+  # GET /climbs
+  # Using RestClient I was able to use the /climbs route to query the end point of my external api for routes! 
+  def index
+    response = RestClient.get 'https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.03&lon=-105.25&maxDistance=10&minDiff=5.6&maxDiff=5.10&key=200965041-9849b0bf4efa888bd435da7521d00992'
+    climbs = JSON.parse response
+
+    render json: climbs
+    # @climbs = Climb.all
+
+    # render json: @climbs
   end
 
   # GET /climbs/1
