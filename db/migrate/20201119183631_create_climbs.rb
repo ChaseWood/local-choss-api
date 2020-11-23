@@ -6,7 +6,7 @@ class CreateClimbs < ActiveRecord::Migration[6.0]
       t.string :type
       t.string :rating
       t.string :stars
-      t.string :location
+      t.string :location, array: true
       t.decimal :latitude
       t.decimal :longitude
       t.boolean :ticklist
