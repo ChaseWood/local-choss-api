@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 2020_11_19_183631) do
   create_table "climbs", force: :cascade do |t|
     t.integer "route_id"
     t.string "name"
-    t.string "type"
+    t.string "style"
     t.string "rating"
-    t.string "stars"
-    t.string "location"
+    t.decimal "stars"
+    t.integer "pitches"
+    t.string "location", array: true
+    t.string "url"
     t.decimal "latitude"
     t.decimal "longitude"
     t.boolean "ticklist"
