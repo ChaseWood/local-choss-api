@@ -7,7 +7,7 @@ class CreateClimbs < ActiveRecord::Migration[6.0]
       t.string :rating
       t.decimal :stars
       t.integer :pitches
-      t.string :location, array: true
+      t.text :location, array: true, default: []
       t.string :url
       t.decimal :latitude
       t.decimal :longitude

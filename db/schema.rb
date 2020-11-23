@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_183631) do
     t.string "rating"
     t.decimal "stars"
     t.integer "pitches"
-    t.string "location", array: true
+    t.text "location", default: [], array: true
     t.string "url"
     t.decimal "latitude"
     t.decimal "longitude"

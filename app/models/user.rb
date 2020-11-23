@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :climbs
+    accepts_nested_attributes_for :climbs
 
     has_secure_password
     validates :username, presence: true
