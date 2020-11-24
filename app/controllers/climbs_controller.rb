@@ -5,25 +5,40 @@ class ClimbsController < ApplicationController
 
   # GET /climbs/:lat/:long
   def getClimbs
-    
-    
     response = RestClient.get "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=#{params[:lat]}&lon=#{params[:long]}&maxDistance=10&minDiff=5.6&maxDiff=5.10&key=200965041-9849b0bf4efa888bd435da7521d00992"
+    
     climbs = JSON.parse response
 
     render json: climbs
 
   end
+  # POST /setToDO
+  def settodo
+    @climbSetToDo = Climb.find_by_user_id_and_route_id(params[:user_id],params[:route_id])
+    @climbCreateToDo = Climb.new(climb_params)
 
-  # GET /climbs
-  # Using RestClient I was able to use the /climbs route to query the end point of my external api for routes! 
-  def index
-    response = RestClient.get 'https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.03&lon=-105.25&maxDistance=10&minDiff=5.6&maxDiff=5.10&key=200965041-9849b0bf4efa888bd435da7521d00992'
-    climbs = JSON.parse response
+    if @climbSetToDo
+      render json: @climbSetToDo
+    else
+      @climbCreateToDo.save
+      render json: @climbCreateToDo
+    end
 
-    render json: climbs
-    # @climbs = Climb.all
+  end
 
-    # render json: @climbs
+  # PUT /setTickList/:user_id/:route_id
+  def setticklist
+    @climbs = Climb.find_by_user_id_and_route_id(params[:user_id],params[:route_id])
+    
+    @climbCreateTick = Climb.new(climb_params)
+
+    if @climbs
+      @climbs.update(ticklist:true)
+      render json: @climbs
+    else
+      @climbCreateTick.save
+      render json: @climbCreateTick
+    end
   end
 
   # GET /climbs/1
