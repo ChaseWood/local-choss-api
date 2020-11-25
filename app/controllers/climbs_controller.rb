@@ -41,6 +41,18 @@ class ClimbsController < ApplicationController
     end
   end
 
+  # GET /getticklist/:user_id
+  def getticklist
+    @climbs = Climb.where(user_id: params[:user_id], ticklist: true)
+    render json: @climbs
+  end
+  
+  # GET /gettodolist/:user_id
+  def gettodolist
+    @climbs = Climb.where(user_id: params[:user_id], ticklist: false)
+    render json: @climbs
+  end
+
   # GET /climbs/1
   def show
     render json: @climb

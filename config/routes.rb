@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post "/settodo/:user_id/:route_id", to: "climbs#settodo"
   post "/setticklist/:user_id/:route_id", to: "climbs#setticklist"
 
+  get "/getticklist/:user_id", to: "climbs#getticklist"
+  get "/gettodolist/:user_id", to: "climbs#gettodolist"
+  
   
   
   resources :users, only: [:create, :show, :index]
