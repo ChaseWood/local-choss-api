@@ -81,6 +81,8 @@ class ClimbsController < ApplicationController
   # DELETE /climbs/1
   def destroy
     @climb.destroy
+
+    render json: @climb
   end
 
   private
