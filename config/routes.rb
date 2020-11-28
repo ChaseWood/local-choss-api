@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get "/getticklist/:user_id", to: "climbs#getticklist"
   get "/gettodolist/:user_id", to: "climbs#gettodolist"
+  get "/getuserchart/:user_id", to: "climbs#getuserchart"
   
   
   

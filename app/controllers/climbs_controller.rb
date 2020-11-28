@@ -44,12 +44,21 @@ class ClimbsController < ApplicationController
   # GET /getticklist/:user_id
   def getticklist
     @climbs = Climb.where(user_id: params[:user_id], ticklist: true)
+
     render json: @climbs
   end
   
   # GET /gettodolist/:user_id
   def gettodolist
     @climbs = Climb.where(user_id: params[:user_id], ticklist: false)
+
+    render json: @climbs
+  end
+
+  #GET /getuserchart/:user_id
+  def getuserchart
+    @climbs = Climb.where(user_id: 1).where('substr(rating, 1, 1) = ?', '5').group(:rating).count
+
     render json: @climbs
   end
 
