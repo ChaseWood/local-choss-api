@@ -20,8 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: localhost
   port: 5432
+  host: localhost
   user: test
   password: test
 
@@ -75,7 +75,7 @@ test:
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+  DATABASE_URL="postgres://wxzvrjzuhgbipu:da3deadd30b1b59b6336bbf43c9367ee968e04ac4dea4bd2919b8728b390d967@ec2-34-202-65-210.compute-1.amazonaws.com:5432/d408qs1jmgphjt"
 #
 # You can use this database configuration with:
 #
