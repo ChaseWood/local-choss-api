@@ -5,7 +5,7 @@ class ClimbsController < ApplicationController
 
   # GET /climbs/:lat/:long
   def getClimbs
-    response = RestClient.get "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=#{params[:lat]}&lon=#{params[:long]}&maxDistance=10&minDiff=5.6&maxDiff=5.10&key=200965041-9849b0bf4efa888bd435da7521d00992"
+    response = RestClient.get "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=#{params[:lat]}&lon=#{params[:long]}&maxDistance=50&minDiff=5.6&maxDiff=5.14&maxResults=200&key=200965041-9849b0bf4efa888bd435da7521d00992"
     
     climbs = JSON.parse response
 
